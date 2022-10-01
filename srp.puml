@@ -1,0 +1,31 @@
+@startuml
+class com.directi.training.srp.exercise_refractored.CarRater {
++ Car getBestCar(List<Car>)
+}
+class com.directi.training.srp.exercise_refractored.Car {
+- String _id
+- String _model
+- String _brand
++ <<Create>> Car(String,String,String)
++ String getId()
++ String getModel()
++ String getBrand()
+}
+class com.directi.training.srp.exercise_refractored.CarManager {
+- CarDB _carDB
+- CarFormatter _carFormatter
+- CarRater _carRater
++ <<Create>> CarManager(CarDB,CarFormatter,CarRater)
++ Car getCarById(String)
++ String getCarsNames()
++ Car getBestCar()
+}
+class com.directi.training.srp.exercise_refractored.CarFormatter {
++ String getCarsNames(List<Car>)
+}
+class com.directi.training.srp.exercise_refractored.CarDB {
+- List<Car> _carsDb
++ Car findById(String)
++ List<Car> findAll()
+}
+@enduml

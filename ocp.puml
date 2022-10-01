@@ -1,0 +1,25 @@
+@startuml
+class com.directi.training.ocp.exercise_refractored.ResourceAllocator {
++ int allocate(Resource)
++ void free(Resource,int)
+}
+class com.directi.training.ocp.exercise_refractored.TimeResource {
++ int findFree()
++ void markBusy(int)
++ void markFree(int)
+}
+interface com.directi.training.ocp.exercise_refractored.Resource {
+~ int findFree()
+~ void markBusy(int)
+~ void markFree(int)
+}
+class com.directi.training.ocp.exercise_refractored.SpaceResource {
++ int findFree()
++ void markBusy(int)
++ void markFree(int)
+}
+
+
+com.directi.training.ocp.exercise_refractored.Resource <|.. com.directi.training.ocp.exercise_refractored.TimeResource
+com.directi.training.ocp.exercise_refractored.Resource <|.. com.directi.training.ocp.exercise_refractored.SpaceResource
+@enduml

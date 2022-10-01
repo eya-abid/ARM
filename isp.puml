@@ -1,0 +1,46 @@
+@startuml
+class com.directi.training.isp.exercise_refractored.Sensor {
++ void register(SensorClient)
+- boolean isPersonClose()
+}
+class com.directi.training.isp.exercise_refractored.SensingDoor {
+- boolean _locked
+- boolean _opened
++ void lock()
++ void unlock()
++ void open()
++ void close()
++ void proximityCallback()
+}
+class com.directi.training.isp.exercise_refractored.Timer {
++ void register(long,TimerClient)
+}
+interface com.directi.training.isp.exercise_refractored.Door {
+~ void lock()
+~ void unlock()
+~ void open()
+~ void close()
+}
+interface com.directi.training.isp.exercise_refractored.SensorClient {
+~ void proximityCallback()
+}
+class com.directi.training.isp.exercise_refractored.TimedDoor {
+- {static} int TIME_OUT
+- boolean _locked
+- boolean _opened
++ void lock()
++ void unlock()
++ void open()
++ void close()
++ void timeOutCallback()
+}
+interface com.directi.training.isp.exercise_refractored.TimerClient {
+~ void timeOutCallback()
+}
+
+
+com.directi.training.isp.exercise_refractored.Door <|.. com.directi.training.isp.exercise_refractored.SensingDoor
+com.directi.training.isp.exercise_refractored.SensorClient <|.. com.directi.training.isp.exercise_refractored.SensingDoor
+com.directi.training.isp.exercise_refractored.Door <|.. com.directi.training.isp.exercise_refractored.TimedDoor
+com.directi.training.isp.exercise_refractored.TimerClient <|.. com.directi.training.isp.exercise_refractored.TimedDoor
+@enduml

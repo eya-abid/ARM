@@ -1,4 +1,4 @@
-package com.directi.training.lsp.exercice_refractored;
+package com.directi.training.lsp.exercise_refractored;
 
 public class Duck implements IDuck
 {

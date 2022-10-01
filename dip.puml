@@ -1,0 +1,42 @@
+@startuml
+interface com.directi.training.dip.exercise_refractored.IWriter {
+~ void write(String)
+}
+class com.directi.training.dip.exercise_refractored.MyNetworkReader {
+- String _protocol
+- String _host
+- String _file
++ String read()
+}
+class com.directi.training.dip.exercise_refractored.MyDatabase {
+- {static} Map<Integer,String> _data
+- {static} int _count
++ int write(String)
+}
+class com.directi.training.dip.exercise_refractored.MyFileWriter {
+- String _fileName
++ void write(String)
+}
+class com.directi.training.dip.exercise_refractored.EncodingModuleClient {
++ {static} void main(String[])
+}
+class com.directi.training.dip.exercise_refractored.MyDatabaseWriter {
++ void write(String)
+}
+class com.directi.training.dip.exercise_refractored.EncodingModule {
++ void encode(IReader,IWriter)
+}
+class com.directi.training.dip.exercise_refractored.MyFileReader {
+- String _fileName
++ String read()
+}
+interface com.directi.training.dip.exercise_refractored.IReader {
+~ String read()
+}
+
+
+com.directi.training.dip.exercise_refractored.IReader <|.. com.directi.training.dip.exercise_refractored.MyNetworkReader
+com.directi.training.dip.exercise_refractored.IWriter <|.. com.directi.training.dip.exercise_refractored.MyFileWriter
+com.directi.training.dip.exercise_refractored.IWriter <|.. com.directi.training.dip.exercise_refractored.MyDatabaseWriter
+com.directi.training.dip.exercise_refractored.IReader <|.. com.directi.training.dip.exercise_refractored.MyFileReader
+@enduml
