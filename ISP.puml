@@ -1,0 +1,48 @@
+@startuml
+interface com.directi.training.isp.exercise_refactored.SensingObject {
+~ void proximityCallback()
+}
+class com.directi.training.isp.exercise_refactored.Timer {
++ void register(long,TimedObject)
+}
+class com.directi.training.isp.exercise_refactored.TimedDoor {
+- {static} int TIME_OUT
+- boolean _locked
+- boolean _opened
++ <<Create>> TimedDoor(Timer)
++ void lock()
++ void unlock()
++ void open()
++ void close()
++ void timeOutCallback()
+}
+class com.directi.training.isp.exercise_refactored.Sensor {
++ void register(SensingObject)
+- boolean isPersonClose()
+}
+class com.directi.training.isp.exercise_refactored.SensingDoor {
+- boolean _locked
+- boolean _opened
++ <<Create>> SensingDoor(Sensor)
++ void lock()
++ void unlock()
++ void open()
++ void close()
++ void proximityCallback()
+}
+interface com.directi.training.isp.exercise_refactored.Door {
+~ void lock()
+~ void unlock()
+~ void open()
+~ void close()
+}
+interface com.directi.training.isp.exercise_refactored.TimedObject {
+~ void timeOutCallback()
+}
+
+
+com.directi.training.isp.exercise_refactored.Door <|.. com.directi.training.isp.exercise_refactored.TimedDoor
+com.directi.training.isp.exercise_refactored.TimedObject <|.. com.directi.training.isp.exercise_refactored.TimedDoor
+com.directi.training.isp.exercise_refactored.Door <|.. com.directi.training.isp.exercise_refactored.SensingDoor
+com.directi.training.isp.exercise_refactored.SensingObject <|.. com.directi.training.isp.exercise_refactored.SensingDoor
+@enduml
