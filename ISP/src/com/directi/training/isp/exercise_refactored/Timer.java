@@ -1,10 +1,10 @@
-package com.directi.training.isp.exercise_refractored;
+package com.directi.training.isp.exercise_refactored;
 
 import java.util.TimerTask;
 
 public class Timer
 {
-    public void register(long timeOut, final TimerClient timerClient)
+    public void register(long timeOut, final TimedObject timerobj)
     {
         java.util.Timer timerUtility = new java.util.Timer();
         timerUtility.schedule(new TimerTask()
@@ -12,7 +12,7 @@ public class Timer
             @Override
             public void run()
             {
-                timerClient.timeOutCallback();
+                timerobj.timeOutCallback();
             }
         }, timeOut);
     }

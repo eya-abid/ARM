@@ -6,6 +6,7 @@ class com.directi.training.dip.exercise_refractored.MyNetworkReader {
 - String _protocol
 - String _host
 - String _file
++ <<Create>> MyNetworkReader(String,String,String)
 + String read()
 }
 class com.directi.training.dip.exercise_refractored.MyDatabase {
@@ -15,6 +16,7 @@ class com.directi.training.dip.exercise_refractored.MyDatabase {
 }
 class com.directi.training.dip.exercise_refractored.MyFileWriter {
 - String _fileName
++ <<Create>> MyFileWriter(String)
 + void write(String)
 }
 class com.directi.training.dip.exercise_refractored.EncodingModuleClient {
@@ -28,6 +30,7 @@ class com.directi.training.dip.exercise_refractored.EncodingModule {
 }
 class com.directi.training.dip.exercise_refractored.MyFileReader {
 - String _fileName
++ <<Create>> MyFileReader(String)
 + String read()
 }
 interface com.directi.training.dip.exercise_refractored.IReader {

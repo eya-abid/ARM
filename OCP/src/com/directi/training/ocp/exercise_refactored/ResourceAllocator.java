@@ -1,6 +1,7 @@
-package com.directi.training.ocp.exercise_refractored;
+package com.directi.training.ocp.exercise_refactored;
 
-public class ResourceAllocator {
+public class ResourceAllocator
+{
     public int allocate(Resource resource)
     {
         int resourceId = resource.findFree();

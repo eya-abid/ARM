@@ -1,6 +1,6 @@
-package com.directi.training.ocp.exercise_refractored;
+package com.directi.training.ocp.exercise_refactored;
 
-public class TimeResource implements Resource
+public class SpaceSlot implements Resource
 {
     @Override
     public int findFree()
